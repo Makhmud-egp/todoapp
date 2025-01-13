@@ -1,0 +1,24 @@
+{% extends 'todo_app/base.html' %}
+
+{% block content %}
+<h2>{{ form_title }}</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" value="{{ todo.title }}" required>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required>{{ todo.description }}</textarea>
+
+    <label for="status">Status:</label>
+    <select id="status" name="status">
+        <option value="Not Started" {% if todo.status == "Not Started" %}selected{% endif %}>Not Started</option>
+        <option value="In Progress" {% if todo.status == "In Progress" %}selected{% endif %}>In Progress</option>
+        <option value="Done" {% if todo.status == "Done" %}selected{% endif %}>Done</option>
+    </select>
+
+    <button type="submit">Save</button>
+</form>
+
+{% endblock %}

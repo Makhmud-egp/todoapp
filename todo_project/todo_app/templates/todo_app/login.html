@@ -1,0 +1,14 @@
+{% extends 'todo_app/base.html' %}
+
+{% block content %}
+  <h2>Login</h2>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <!-- Hidden field to hold the next page URL -->
+    <input type="hidden" name="next" value="{{ next }}">
+
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+{% endblock %}
