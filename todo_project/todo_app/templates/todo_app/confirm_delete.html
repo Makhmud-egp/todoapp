@@ -1,0 +1,18 @@
+{% extends 'todo_app/base.html' %}
+
+{% block content %}
+<h2>Are you sure you want to delete this task?</h2>
+
+<div>
+    <strong>Title:</strong> {{ task.title }}<br>
+    <strong>Description:</strong> {{ task.description }}<br>
+    <strong>Status:</strong> {{ task.status }}<br>
+    <strong>Due Date:</strong> {{ task.due_date|date:"Y-m-d" }}<br>
+</div>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

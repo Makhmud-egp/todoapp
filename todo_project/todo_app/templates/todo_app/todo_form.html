@@ -6,19 +6,22 @@
 <form method="post">
     {% csrf_token %}
     <label for="title">Title:</label>
-    <input type="text" id="title" name="title" value="{{ todo.title }}" required>
+    <input type="text" id="title" name="title" value="{{ form.title.value }}" required>
 
     <label for="description">Description:</label>
-    <textarea id="description" name="description" required>{{ todo.description }}</textarea>
+    <textarea id="description" name="description" required>{{ form.description.value }}</textarea>
 
     <label for="status">Status:</label>
     <select id="status" name="status">
-        <option value="Not Started" {% if todo.status == "Not Started" %}selected{% endif %}>Not Started</option>
-        <option value="In Progress" {% if todo.status == "In Progress" %}selected{% endif %}>In Progress</option>
-        <option value="Done" {% if todo.status == "Done" %}selected{% endif %}>Done</option>
+        <option value="Not Started" {% if form.status.value == "Not Started" %}selected{% endif %}>Not Started</option>
+        <option value="In Progress" {% if form.status.value == "In Progress" %}selected{% endif %}>In Progress</option>
+        <option value="Done" {% if form.status.value == "Done" %}selected{% endif %}>Done</option>
     </select>
 
-    <button type="submit">Save</button>
+    <label for="due_date">Due Date:</label>
+    <input type="date" id="due_date" name="due_date" value="{{ form.due_date.value }}">
+
+    <button type="submit" class="btn btn-primary">Save</button>
 </form>
 
 {% endblock %}

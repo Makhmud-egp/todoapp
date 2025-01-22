@@ -1,6 +1,47 @@
 {% extends 'todo_app/base.html' %}
 
 {% block content %}
-  <h2>Welcome to Your To-Do App</h2>
-  <p>Please <a href="{% url 'login' %}">login</a> to access your to-do list.</p>
+<div class="container text-center mt-5">
+  <div class="jumbotron bg-light p-5 rounded">
+    <h1 class="display-4">Welcome to Your To-Do App!</h1>
+    <p class="lead mt-3">Organize your tasks, stay productive, and achieve your goals effortlessly.</p>
+    <hr class="my-4">
+    <p>Start by logging in or signing up to access your personalized to-do list.</p>
+    <div class="d-flex justify-content-center mt-4">
+      <a href="{% url 'login' %}" class="btn btn-primary btn-lg mx-2">Login</a>
+      <a href="{% url 'sign_up' %}" class="btn btn-success btn-lg mx-2">Sign Up</a>
+    </div>
+  </div>
+  
+  <!-- Optional: Add some trending features or motivation -->
+  <div class="mt-5">
+    <h3>Why Use This App?</h3>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="card shadow">
+          <div class="card-body">
+            <h5 class="card-title">Stay Organized</h5>
+            <p class="card-text">Manage your daily tasks with ease and never miss a deadline.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mt-3 mt-md-0">
+        <div class="card shadow">
+          <div class="card-body">
+            <h5 class="card-title">Boost Productivity</h5>
+            <p class="card-text">Prioritize your to-do items and focus on what truly matters.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mt-3 mt-md-0">
+        <div class="card shadow">
+          <div class="card-body">
+            <h5 class="card-title">Access Anywhere</h5>
+            <p class="card-text">Track your tasks on any device, anytime, anywhere.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
